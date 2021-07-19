@@ -12,13 +12,13 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_white[]	    = "#fefefe";
-static const char col_black[]	    = "#000000";
-static const char col_blue_teal[]   = "#114488";
+static const char col_green[]       = "#00FF00";
+static const char col_darkgreen[]   = "#008800";
+static const char col_black[]       = "#000000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_blue_teal, col_black },
-	[SchemeSel]  = { col_gray4, col_blue_teal,  col_white  },
+	[SchemeNorm] = { col_green, col_black, col_darkgreen },
+	[SchemeSel]  = { col_green, col_black,  col_green  },
 };
 
 /* tagging */
@@ -31,11 +31,11 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -59,7 +59,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_blue_teal, "-nf", col_white, "-sb", col_white, "-sf", col_blue_teal, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_green, "-sb", col_green, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "sakura", NULL };
 
 static Key keys[] = {
